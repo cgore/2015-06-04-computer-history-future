@@ -50,7 +50,9 @@
 \usepackage[normalem]{ulem}
 \usepackage{wasysym}
 \usepackage{dirtree}
-
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{pifont}
 
 \usepackage{semcolor,slidesec}
 \input{seminar.bug}
@@ -88,13 +90,42 @@
 
 \newcommand{\shell}[1]{\texttt{\textbf{{\textcolor{Blue} \$}} #1}}
 
+\newcommand{\xmark}{\textcolor{Red}{\ding{55}}}
+\newcommand{\cmark}{\textcolor{Green}{\ding{51}}}
+
+\newcommand{\SlideSection}[1]
+{
+  \begin{center}
+    \textcolor{\hc}{\textbf{\emph{\Huge{#1}}}}
+  \end{center}
+}
+
+
 \newcommand{\fullSlideImage}[1]{
   \begin{center}
     \includegraphics[width=4in,height=2.5in,keepaspectratio=true]{#1}
   \end{center}
 }
 
-\title{\psshadowbox{Computer History/Future}}
+\newcommand{\halfSlideImage}[1]{
+  \includegraphics[width=2in,height=2.5in,keepaspectratio=true]{#1}
+}
+
+\newcommand{\rightSideImageName}{you-must-supply-the-image-name.eps}
+\newenvironment{rightSideImage}[1]
+{
+  \renewcommand{\rightSideImageName}{#1}
+  \begin{tabular}{lr}
+    \begin{minipage}[b]{2in}
+}
+{
+    \end{minipage}
+    &
+    \halfSlideImage{\rightSideImageName}
+  \end{tabular}
+}
+
+\title{\psshadowbox{Computer History/Failure/Future}}
 \author{Christopher Mark Gore\\
   \texttt{cgore.com}}
 \date{Tuesday, June 4, {\smaller AD} 2015} % textsc doesn't seem to work for Baskerville.
@@ -118,9 +149,439 @@
 
 
 \begin{slide}
-  \begin{center}
-    \textcolor{\hc}{\textbf{\emph{\Huge{Questions?}}}}
-  \end{center}
+  \h{1800's + Science Fiction = ???}
+  \begin{tabular}{lr}
+    \halfSlideImage{Queen-Victoria-by-Bassano.eps}
+    &
+    \halfSlideImage{Apollo-11-launch.eps}
+  \end{tabular}
+\end{slide}
+
+
+\begin{slide}
+  \h{Steampunk!}
+
+  \begin{rightSideImage}{Steampunk-outfit-mask.eps}
+    \begin{itemize}
+      \item[\xmark] Practicality
+      \item[\xmark] Reality
+      \item[\xmark] Rationality
+      \item[\cmark] Steam powered computers
+      \item[\cmark] Steam powered layzers
+      \item[\cmark] Steam powered rocket ships
+      \item[\cmark] Steam powered clothing
+    \end{itemize}
+  \end{rightSideImage}
+\end{slide}
+
+\begin{slide}
+  \h{The Difference Engine (Gibson and Sterling)}
+
+  \begin{rightSideImage}{book-difference-engine.eps}
+    What if Charles Babbage actually built his Analytical Engine, sparking the
+    computer revolution in Victorian England?
+  \end{rightSideImage}
+\end{slide}
+
+
+\begin{slide}
+  \SlideSection{History}
+\end{slide}
+
+
+\begin{slide}
+  \h{2700 BC: The Abacus}
+
+  \begin{rightSideImage}{abacus.eps}
+    \begin{itemize}
+      \item First invented by the Ancient Sumerians.
+      \item The ones everybody knows, like the one shown here, are the Chinese
+        style (\textit{Suanpan},) and are still used today even though
+        electronic calculators can be had for \$0.99 or less.
+      \item These are a really good way to count sheep without going to sleep.
+    \end{itemize}
+  \end{rightSideImage}
+\end{slide}
+
+
+\begin{slide}
+  \h{205 BC: The Antikythera Mechanism}
+
+  \begin{rightSideImage}{antikythera.eps}
+    \begin{itemize}
+      \item The Greeks made analog computers (and mathematics, and philosophy,
+        and baklava, \textellipsis)
+      \item The device tracked the Metonic Cycle,
+      \item Calculated solar eclipses,
+      \item Timed the Ancient Olympic Games,
+      \item and probably other stuff too.
+    \end{itemize}
+  \end{rightSideImage}
+\end{slide}
+
+
+\begin{slide}
+  \h{AD 1791 -- 1871: Charles Babbage}
+
+  \begin{rightSideImage}{Charles-Babbage.eps}
+    \begin{itemize}
+      \item \textit{``Father\footnote{``Who's your daddy?  I am.'' -- \textit{Babbage
+          talking to your laptop}.} of the computer.''}
+      \item Mathematician, philosopher, inventer, engineer.
+      \item Instrumental in founding the Astronomical Society.
+      \item Instrumental in the founding of the modern concept of ``Science.''
+    \end{itemize}
+  \end{rightSideImage}
+\end{slide}
+
+
+\begin{slide}
+  \h{1822: The Difference Engine}
+
+  \begin{rightSideImage}{Difference-engine.eps}
+    \begin{itemize}
+      \item Large mechanical calculator.
+      \item Calculates polynomial functions.
+      \item Used to calculate tables of solutions for publishing.
+      \item \textbf{Not} a general-purpose computer.
+      \item Not built until the 1990's.
+    \end{itemize}
+  \end{rightSideImage}
+\end{slide}
+
+
+\begin{slide}
+  \h{1837: The Analytical Engine}
+
+  \fullSlideImage{Analytical-Engine.eps}
+\end{slide}
+
+\begin{slide}
+  \h{1837: The Analytical Engine}
+
+  \begin{itemize}
+    \item Mechanical, fully general-purpose computer.
+    \item Turing-complete (75 years before Turing was born.)
+    \item Never built (yet.)
+    \item Arithmetic logic unit, ALU: \textit{``the mill.''}
+    \item Control flow: conditional branching, loops.
+    \item Integrated memory: 1000 numbers of 40 decimal digits each (16.7 kB.)
+    \item Programming language similar to modern assembly.
+    \item Punched cards.
+  \end{itemize}
+\end{slide}
+
+\begin{slide}
+  \h{1815 -- 1852: Ada Lovelace}
+
+  \begin{rightSideImage}{Ada-Lovelace.eps}
+    \begin{itemize}
+      \item \textit{Augusta Ada King, Countess of Lovelace, n\'ee Byron.}
+      \item Daughter of the poet Lord Byron.
+      \item Mathematician and writer.
+      \item Wrote the first computer algorithm.
+      \item Described computer programming and computer science
+        as \textit{``poetical science.''}
+    \end{itemize}
+  \end{rightSideImage}
+\end{slide}
+
+
+\begin{slide}
+
+  \h{She Walks in Beauty -- Lord Byron}
+
+  She walks in beauty, like the night\\
+  Of cloudless climes and starry skies;\\
+  And all that's best of dark and bright\\
+  Meet in her aspect and her eyes:\\
+  Thus mellow'd to that tender light\\
+  Which heaven to gaudy day denies.
+\end{slide}
+
+\begin{slide} 
+  One shade the more, one ray the less,\\
+  Had half impair'd the nameless grace\\
+  Which waves in every raven tress,\\
+  Or softly lightens o'er her face;\\
+  Where thoughts serenely sweet express\\
+  How pure, how dear their dwelling-place.
+\end{slide}
+
+\begin{slide}
+  And on that cheek, and o'er that brow,\\
+  So soft, so calm, yet eloquent,\\
+  The smiles that win, the tints that glow,\\
+  But tell of days in goodness spent,\\
+  A mind at peace with all below,\\
+  A heart whose love is innocent!
+\end{slide}
+
+
+\begin{slide}
+  \h{1840 -- 1843: The First Computer Algorithm}
+
+  \begin{rightSideImage}{first-computer-algorithm.eps}
+    \begin{itemize}
+      \item Written by Ada Lovelace and Charles Babbage.
+      \item Babbage toured Italy talking about the Analytical Engine.
+      \item Luigi Menabrea published notes.
+      \item Ada Lovelace translated and augmented the published notes.
+      \item Note G: Computes Bernoulli numbers.
+    \end{itemize}
+  \end{rightSideImage}
+\end{slide}
+
+
+\begin{slide}
+  \h{1910 -- 1995: Konrad Zuse}
+
+  \begin{rightSideImage}{Konrad-Zuse.eps}
+    \begin{itemize}
+      \item Built the world's first programmable computer, the Z3.
+      \item Built the world's first commercial computer, the Z4.
+      \item Designed world's first high-level programming language,
+        \textit{Plankalk\"ul.}
+      \item First suggested the concept of a ``computation-based universe.''
+    \end{itemize}
+  \end{rightSideImage}
+\end{slide}
+
+
+\begin{slide}
+  \h{1941: The Z3}
+
+  \begin{rightSideImage}{Z3.eps}
+    \begin{itemize}
+      \item Electro-mechanical.
+      \item World's first programmable, fully automatic digital computer.
+      \item 2000 relays, 22-bit word length, clock frequency of 5--10~Hz.
+      \item Program code and data on punched film.
+      \item Further funding denied by the Nazis because it was ``not
+        war-important.''
+    \end{itemize}
+  \end{rightSideImage}
+\end{slide}
+
+
+\begin{slide}
+  \h{1903 -- 1957: John von Neumann}
+
+  \begin{rightSideImage}{John-von-Neumann.eps}
+    \begin{itemize}
+      \item Major contributions to mathematics, physics, economics, computing,
+        and statistics.
+      \item Simulated atomic bombs on computers.
+      \item Von Neumann architecture: how most modern physical
+        computers\footnote{including this MacBook Pro} actually work.
+    \end{itemize}
+  \end{rightSideImage}
+\end{slide}
+
+
+\begin{slide}
+  \h{1912 -- 1954: Alan Turing}
+
+  \begin{rightSideImage}{Alan-Turing-Aged-16.eps}
+    \begin{itemize}
+      \item Turing machines mathematically formalized the concepts of algorithms
+        and computation.
+      \item Helped defeat Nazi encryption with computers for the Allies.
+    \end{itemize}
+  \end{rightSideImage}
+\end{slide}
+
+
+\begin{slide}
+  \h{Nazis!}
+
+  \fullSlideImage{Nazis-on-parade.eps}
+\end{slide}
+
+
+\begin{slide}
+  \h{The Enigma Machine}
+
+  \begin{rightSideImage}{Enigma.eps}
+    \begin{itemize}
+      \item Electro-mechanical roto-cypher machine.
+      \item Encyphered and decrypted secret messages.
+      \item First models from World War I.
+      \item Most Nazi military communications were encrypted/decrypted via these.
+    \end{itemize}
+  \end{rightSideImage}
+\end{slide}
+
+
+\begin{slide}
+  \h{1943 -- 1945: The Colossus Computers}
+
+  \begin{rightSideImage}{Colossus.eps}
+    \begin{itemize}
+      \item Code breaking computers.
+      \item Vacuum tubes and thyratrons\footnote{I don't know what these are,
+        but they look cool.}.
+      \item Decrypted Nazi High Command and military intelligence dispatches daily.
+    \end{itemize}
+  \end{rightSideImage}
+\end{slide}
+
+
+\begin{slide}
+  \h{1946: The ENIAC}
+
+  \begin{rightSideImage}{ENIAC.eps}
+    \begin{itemize}
+      \item First electronic general-purpose computer.
+      \item Turing complete.
+      \item 1000 times faster than electro-mechanical machines.
+      \item Calculated artillery firing tables.
+      \item Feasibility computations for the hydrogen bomb.
+    \end{itemize}
+  \end{rightSideImage}
+\end{slide}
+
+
+\begin{slide}
+  \h{1948: Manchester SSEM, \textit{``Baby''}}
+
+  \begin{rightSideImage}{SSEM.eps}
+    \begin{itemize}
+      \item World's first stored-program computer.
+      \item Immediately followed by the Manchester Mark I, the prototype for:
+      \item The Ferranti Mark I, the very first commercially available general
+        purpose computer.
+    \end{itemize}
+  \end{rightSideImage}
+\end{slide}
+
+
+\begin{slide}
+  \h{1954: The IBM 704}
+
+  \begin{rightSideImage}{IBM-704.eps}
+    \begin{itemize}
+      \item First mass-produced computer with floating-point arithmetic
+        hardware.
+      \item 12,000~FLOPS.
+      \item FORTRAN was developed on the IBM 704.
+      \item Lisp\footnote{\texttt{CAR}: contents of the address register;
+        \texttt{CDR}: contents of the data register.} was developed on the IBM 704.
+    \end{itemize}
+  \end{rightSideImage}
+\end{slide}
+
+
+\begin{slide}
+  \h{1957: FORTRAN}
+
+  \begin{itemize}
+    \item Since it's the 1950's, we only use computers to calculate interesting
+      scientific formulas for nuclear weapons.
+    \item We need a \textit{FORmula TRANslator} system!
+    \item Oldest programming language still used.
+    \item Modern versions are actually pretty nice.
+    \item Fortran 2015 is almost out.
+  \end{itemize}
+\end{slide}
+
+
+\begin{slide}
+  \SlideSection{$(\lambda)$}
+\end{slide}
+
+
+\begin{slide}
+  \h{1958: Lisp}
+
+  \begin{itemize}
+    \item  \textit{``The greatest single programming language ever designed.''}
+      -- Alan Kay.
+    \item \textit{``Lisp is worth learning for the profound enlightenment experience you
+      will have when you finally get it; that experience will make you a better
+      programmer for the rest of your days, even if you never actually use Lisp
+      itself a lot.''}\\-- Eric Raymond (ESR.)
+    \item \textit{``One of the most important and fascinating of all computer languages
+      is Lisp (standing for "List Processing"), which was invented by John
+      McCarthy around the time Algol was invented.''} -- Douglas Hofstadter.
+  \end{itemize}
+\end{slide}
+
+
+\begin{slide}
+  \h{1958: Lisp}
+
+  \begin{itemize}
+    \item \textit{``Within a couple weeks of learning Lisp I found programming in any
+      other language unbearably constraining.''}\\-- Paul Graham.
+    \item \textit{``Greenspun's Tenth Rule of Programming: any sufficiently complicated
+      C or Fortran program contains an ad hoc informally-specified bug-ridden
+      slow implementation of half of Common Lisp.''} -- Philip Greenspun.
+    \item \textit{``Lisp has jokingly been called} ``the most intelligent way to misuse a
+      computer.'' \textit{I think that description is a great compliment because it
+      transmits the full flavor of liberation: it has assisted a number of our
+      most gifted fellow humans in thinking previously impossible thoughts.''}
+      -- Edsger Dijkstra.
+  \end{itemize}
+\end{slide}
+
+
+\begin{slide}
+  \SlideSection{The Present}
+  \SlideSection{-- also known as --}
+  \SlideSection{Failure}
+\end{slide}
+
+
+\begin{slide}
+  \h{Why Everything Sucks Now}
+  \begin{itemize}
+    \item 1959: COBOL
+    \item 1972: Unix and C
+    \item 1981: MS-DOS
+    \item 1983: C++
+    \item 1990: Haskell
+    \item 1995: Java
+    \item 1995: \sout{Mocha}, \sout{LiveScript}, \sout{JavaScript}, ECMAScript
+  \end{itemize}
+\end{slide}
+
+
+\begin{slide}
+  \SlideSection{Future}
+\end{slide}
+
+
+\begin{slide}
+  \h{Artificial Intelligence?}
+
+  \fullSlideImage{hal-9000.eps}
+\end{slide}
+
+
+\begin{slide}
+  \h{Artificial CRAZY?}
+
+  \fullSlideImage{dave.eps}
+\end{slide}
+
+
+\begin{slide}
+  \h{Even Better Hunter/Killers than Man?}
+
+  \fullSlideImage{terminator.eps}
+\end{slide}
+
+
+\begin{slide}
+  \h{The Best Possible Future}
+
+  \fullSlideImage{data-cat.eps}
+\end{slide}
+
+
+\begin{slide}
+  \SlideSection{Questions?}
 \end{slide}
 
 
